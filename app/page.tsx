@@ -1,6 +1,12 @@
+"use client";
+
 import Image from "next/image";
-import { LayoutDashboard , ClipboardList, CalendarRange, ChartPie, Users, Settings, LifeBuoy, LogOut} from "lucide-react";
+import { LayoutDashboard , ClipboardList, CalendarRange, ChartPie, Users, Settings, LifeBuoy, LogOut, Bell, Mail, Plus} from "lucide-react";
 import SideBarTile from "@/components/ui/SideBarTile";
+import SearchInput from "@/components/ui/SearchInput";
+import CircleButton from "@/components/ui/CircleButton";
+import AppButton from "@/components/ui/AppButton";
+import AnalyticalCard from "@/components/ui/AnalyticalCard";
 
 export default function Home() {
   return (
@@ -27,8 +33,55 @@ export default function Home() {
 
       </section>
       <section className="h-full w-[80%] justify-between flex flex-col">
-        <div className="h-[10%] bg-gray-100 rounded-2xl"></div>
-        <div className="h-[88%] bg-gray-100 rounded-2xl"></div>
+        {/* General header */}
+        <div className="flex px-5 justify-between items-center h-[10%] bg-gray-100 rounded-2xl">
+          <SearchInput />
+          <div className="flex w-[50%] justify-end">
+            <CircleButton icon={Mail} label="Messages" />
+            <CircleButton icon={Bell} label="Notifications" />
+            <Image src="https://media.licdn.com/dms/image/v2/D4E03AQFYn6PIOkmBzw/profile-displayphoto-crop_800_800/B4EZpTW.7NKkAI-/0/1762335126734?e=1764201600&v=beta&t=6NfYmm2VlwayVvKZ8jVp1t_Pdt2cILSc1I6BPqtiqAQ"
+              alt="Profile Picture"
+              width={45}
+              height={40}
+              className="rounded-full mx-3 cursor-pointer"
+            />
+            <div>
+              <h4 className="text-sm font-normal">Emmanuel Owusu</h4>
+              <span className="text-[10px] text-gray-500">emmanuel.owusu.dev@gmail.com</span>
+            </div>
+          </div>
+        </div>
+        {/* Page Content */}
+        <div className="h-[88%] bg-gray-100 p-5 rounded-2xl">
+          {/* Page Content - Header */}
+          <div className="flex justify-between items-center mb-5">
+            <div>
+              <h2 className="text-2xl font-medium">Dashboard</h2>
+              <span className="text-sm text-gray-500">Plan, prioritize and accomplish your tasks with ease.</span>
+            </div>
+            <div className="flex">
+              <AppButton
+                label="Add Project"
+                prefixIcon={Plus}
+                textColor="text-white"
+              />
+              <AppButton
+                label="Import Data"
+                bgColor="bg-white"
+                textColor="text-[var(--color-primary)]"
+              />
+            </div>
+          </div>
+          {/* Page Content - Body starts here */}
+          {/* Analytical Cards */}
+          <div className="flex justify-between">
+            <AnalyticalCard/>
+            <AnalyticalCard/>
+            <AnalyticalCard/>
+            <AnalyticalCard/>
+          </div>
+          {/* Page Content - Body ends here */}
+        </div>
       </section>
     </div>
   );

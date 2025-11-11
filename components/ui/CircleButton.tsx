@@ -1,0 +1,33 @@
+"use client";
+
+import React from "react";
+import { LucideIcon } from "lucide-react";
+
+interface CircleButtonProps {
+  icon: LucideIcon;
+  onClick?: () => void;
+  label?: string; 
+}
+
+export default function CircleButton({ icon: Icon, onClick, label }: CircleButtonProps) {
+  return (
+    <div>
+        <button
+            onClick={onClick}
+            aria-label={label || "icon button"}
+            className="
+                w-10 h-10
+                flex items-center justify-center
+                mx-1
+                rounded-full
+                bg-white
+                active:scale-95
+                transition
+                cursor-pointer
+            "
+        >
+        <Icon className="w-4 h-4 text-gray-500" />
+        </button>
+    </div>
+  );
+}
