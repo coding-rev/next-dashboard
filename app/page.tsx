@@ -7,6 +7,7 @@ import SearchInput from "@/components/ui/SearchInput";
 import CircleButton from "@/components/ui/CircleButton";
 import AppButton from "@/components/ui/AppButton";
 import AnalyticalCard from "@/components/ui/AnalyticalCard";
+import PageHeader from "@/components/common/PageHeader";
 
 export default function Home() {
   return (
@@ -36,14 +37,14 @@ export default function Home() {
         {/* General header */}
         <div className="flex px-5 justify-between items-center h-[10%] bg-gray-100 rounded-2xl">
           <SearchInput />
-          <div className="flex w-[50%] justify-end">
+          <div className="flex w-[50%] items-center justify-end">
             <CircleButton icon={Mail} label="Messages" />
             <CircleButton icon={Bell} label="Notifications" />
             <Image src="https://media.licdn.com/dms/image/v2/D4E03AQFYn6PIOkmBzw/profile-displayphoto-crop_800_800/B4EZpTW.7NKkAI-/0/1762335126734?e=1764201600&v=beta&t=6NfYmm2VlwayVvKZ8jVp1t_Pdt2cILSc1I6BPqtiqAQ"
               alt="Profile Picture"
               width={45}
               height={40}
-              className="rounded-full mx-3 cursor-pointer"
+              className="rounded-full m-3 cursor-pointer"
             />
             <div>
               <h4 className="text-sm font-normal">Emmanuel Owusu</h4>
@@ -54,31 +55,26 @@ export default function Home() {
         {/* Page Content */}
         <div className="h-[88%] bg-gray-100 p-5 rounded-2xl">
           {/* Page Content - Header */}
-          <div className="flex justify-between items-center mb-5">
-            <div>
-              <h2 className="text-2xl font-medium">Dashboard</h2>
-              <span className="text-sm text-gray-500">Plan, prioritize and accomplish your tasks with ease.</span>
-            </div>
-            <div className="flex">
-              <AppButton
-                label="Add Project"
-                prefixIcon={Plus}
-                textColor="text-white"
-              />
-              <AppButton
-                label="Import Data"
-                bgColor="bg-white"
-                textColor="text-[var(--color-primary)]"
-              />
-            </div>
-          </div>
+          <PageHeader/>
           {/* Page Content - Body starts here */}
           {/* Analytical Cards */}
           <div className="flex justify-between">
-            <AnalyticalCard/>
-            <AnalyticalCard/>
-            <AnalyticalCard/>
-            <AnalyticalCard/>
+            <AnalyticalCard title="Total Projects" count={24} 
+              description="Increased from last month" trendStatus="increasing"
+              trendPercentage={5} isActive={true} 
+            />
+            <AnalyticalCard title="Ended Projects" count={10} 
+              description="Increased from last month" trendStatus="increasing"
+              trendPercentage={10} isActive={false} 
+            />
+            <AnalyticalCard title="Running Projects" count={12} 
+              description="Increased from last month" trendStatus="increasing"
+              trendPercentage={5} isActive={false} 
+            />
+            <AnalyticalCard title="Pending Projects" count={2} 
+              description="Increased from last month" trendStatus="increasing"
+              trendPercentage={5} isActive={false} 
+            />
           </div>
           {/* Page Content - Body ends here */}
         </div>

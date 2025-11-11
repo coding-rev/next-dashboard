@@ -7,24 +7,27 @@ interface CircleButtonProps {
   icon: LucideIcon;
   onClick?: () => void;
   label?: string; 
+  size?: number;
+  borderColor?: string;
 }
 
-export default function CircleButton({ icon: Icon, onClick, label }: CircleButtonProps) {
+export default function CircleButton({ icon: Icon, onClick, label, size=40, borderColor="white"}: CircleButtonProps) {
   return (
     <div>
         <button
             onClick={onClick}
             aria-label={label || "icon button"}
-            className="
-                w-10 h-10
+            style={{ width: size, height: size, borderColor: borderColor }}
+            className={`
                 flex items-center justify-center
-                mx-1
+                mx-2 my-2
                 rounded-full
+                border
                 bg-white
                 active:scale-95
                 transition
                 cursor-pointer
-            "
+            `}
         >
         <Icon className="w-4 h-4 text-gray-500" />
         </button>
