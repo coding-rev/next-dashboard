@@ -5,7 +5,7 @@ import SideBarTile from "@/components/ui/SideBarTile";
 export default function Home() {
   return (
     <div className="flex h-screen bg-white text-black p-3 justify-between">
-      <section className="bg-gray-100 h-full w-[20%] rounded-2xl">
+      <section className="bg-gray-100 h-full w-[19%] rounded-2xl">
           <div className="flex items-center p-5">
             <Image src="/donezo-logo.png" alt="Logo" width={60} height={60} />
             <h1 className="ml-2 text-xl font-semibold">Donezo</h1>
@@ -26,7 +26,7 @@ export default function Home() {
           </div>
 
       </section>
-      <section className="h-full w-[79%] justify-between flex flex-col">
+      <section className="h-full w-[80%] justify-between flex flex-col">
         <div className="h-[10%] bg-gray-100 rounded-2xl"></div>
         <div className="h-[88%] bg-gray-100 rounded-2xl"></div>
       </section>

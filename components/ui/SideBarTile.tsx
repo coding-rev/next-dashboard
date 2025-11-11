@@ -14,8 +14,8 @@ export default function SideBarTile({isActive, label, Icon, hasSuffixCount = fal
         <div className="flex items-center" >
             <div className={`${isActive === true ? 'h-10 w-2 bg-green-800 rounded-r-xl' : ''}`}></div>
             <div className={`flex items-center ${isActive === true ? 'ml-5' : 'ml-7'}`}>
-                <Icon size={18} color={`${isActive === true ? "green": "gray"}`}/>
-                <span className={`ml-4 text-sm ${isActive === true ? 'text-black' : ''}`}>
+                <Icon size={20} color={`${isActive === true ? "green": "gray"}`}/>
+                <span className={`ml-4 text-base ${isActive === true ? 'text-black' : ''}`}>
                     { label }
                 </span>
             </div>
