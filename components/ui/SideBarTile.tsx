@@ -1,19 +1,22 @@
+import { useSidebarStore } from "@/store/sidebarStore";
 import { LucideIcon } from "lucide-react";
 
 interface SideBarTileProps {
   isActive: boolean;
   label: string;
   Icon: LucideIcon;
+  tabKey: string;
   hasSuffixCount?: boolean;
   suffixCount?: number;
 }
 
-export default function SideBarTile({isActive, label, Icon, hasSuffixCount = false, suffixCount = 0}: SideBarTileProps) {
-  return (
-    <div className="flex justify-between items-center mb-4 cursor-pointer text-gray-400">
+export default function SideBarTile({isActive, label, Icon, tabKey, hasSuffixCount = false, suffixCount = 0}: SideBarTileProps) {
+    const setActiveTab = useSidebarStore((s) => s.setActiveTab);
+    return (
+    <div onClick={()=> setActiveTab(tabKey)} className="flex justify-between items-center mb-1 cursor-pointer text-gray-400">
         <div className="flex items-center" >
-            <div className={`${isActive === true ? 'bg-[var(--color-primary)] h-10 w-2 rounded-r-xl' : ''}`}></div>
-            <div className={`flex items-center ${isActive === true ? 'ml-5' : 'ml-7'}`}>
+            <div className={`${isActive === true ? 'bg-[var(--color-primary)] h-10 w-2 rounded-r-xl transition ease-in duration-300' : 'h-10 w-2'}`}></div>
+            <div className={`flex items-center ${isActive === true ? 'ml-5' : 'ml-5'}`}>
                 <Icon size={20} color={`${isActive === true ? "var(--color-primary)": "gray"}`}/>
                 <span className={`ml-4 text-base ${isActive === true ? 'text-black' : ''}`}>
                     { label }
