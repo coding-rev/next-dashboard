@@ -16,7 +16,7 @@ export default function Sidebar() {
           </div>
           <div className="mt-5">
             <h5 className="text-xs mb-2 pl-5">MENU</h5>
-            <SideBarTile Icon={LayoutDashboard} tabKey='dashboard' isActive={activeTab === "dashboard" ? true : false} label="Dashboard"/>
+            <SideBarTile Icon={LayoutDashboard} tabKey='' isActive={activeTab === "" ? true : false} label="Dashboard"/>
             <SideBarTile Icon={ClipboardList} tabKey='tasks' isActive={activeTab === "tasks" ? true : false} hasSuffixCount={true} suffixCount={12} label="Tasks"/>
             <SideBarTile Icon={CalendarRange} tabKey='calendar' isActive={activeTab === "calendar" ? true : false} label="Calendar"/>
             <SideBarTile Icon={ChartPie} tabKey='analytics' isActive={activeTab === "analytics" ? true : false} label="Analytics"/>

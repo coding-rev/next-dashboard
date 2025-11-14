@@ -1,5 +1,6 @@
 import { useSidebarStore } from "@/store/sidebarStore";
 import { LucideIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface SideBarTileProps {
   isActive: boolean;
@@ -10,10 +11,18 @@ interface SideBarTileProps {
   suffixCount?: number;
 }
 
+
 export default function SideBarTile({isActive, label, Icon, tabKey, hasSuffixCount = false, suffixCount = 0}: SideBarTileProps) {
+    const router = useRouter();
+
     const setActiveTab = useSidebarStore((s) => s.setActiveTab);
+    const handleClick = (tab: string) => {
+        setActiveTab(tab);
+        router.push(`/${tab}`);
+    };
+
     return (
-    <div onClick={()=> setActiveTab(tabKey)} className="flex justify-between items-center mb-1 cursor-pointer text-gray-400">
+    <div onClick={()=> handleClick(tabKey)} className="flex justify-between items-center mb-1 cursor-pointer text-gray-400">
         <div className="flex items-center" >
             <div className={`${isActive === true ? 'bg-[var(--color-primary)] h-10 w-2 rounded-r-xl transition ease-in duration-300' : 'h-10 w-2'}`}></div>
             <div className={`flex items-center ${isActive === true ? 'ml-5' : 'ml-5'}`}>

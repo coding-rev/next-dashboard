@@ -8,6 +8,6 @@ interface SidebarState {
 }
 
 export const useSidebarStore = create<SidebarState>((set) => ({
-  activeTab: "dashboard",
+  activeTab: "",
   setActiveTab: (tab) => set({ activeTab: tab }),
 }));
